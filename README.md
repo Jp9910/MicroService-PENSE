@@ -1,17 +1,16 @@
-# Servidor:  _coloque aqui o titulo de  seu software_
+# Servidor:  Processos executando
 
-## _Informe aqui seu nome como autor deste software_
+## Autor: _João Paulo Secundo_
 
- 
-__Descreva aqui brevemente __ o que seu software faz. Informe quais as informações esperadas quando uma consulta HTTP é direcionada para esse servidor.
-
+## Como funciona
+Depois de iniciado, o servidor atenderá requisições GET HTTP de qualquer subrota de `/`, e responderá com uma tabela informando os processos que estão atualmente em execução no servidor. Para isso, é criado um subprocesso `ps`, e seu output é montado dinamicamente em uma tabela html.
 
 ##  Porta do servidor:
 
-> sua resposta
+> 55504
 
 ## Exemplo de uso:
 
-> sua resposta
+> Em um terminal linux, digitar: "wget localhost:55504"
 
-
+> No firefox, digitar "localhost:55504/teste" (ou qualquer subrota de / )
