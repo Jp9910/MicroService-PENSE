@@ -1,4 +1,4 @@
-# Servidor:  Pense - Processor Executando Neste SErvidor
+# Servidor:  PENSE - Processos Executando Neste SErvidor
 
 ## Autor: _João Paulo Secundo_
 
@@ -10,6 +10,9 @@ Depois de iniciado, o servidor atenderá requisições GET HTTP de qualquer subr
 > 55504
 
 ## Exemplo de uso:
+
+Primeiro deve-se executar o servidor, com o comando "python servidor.py". 
+Em seguida usa-se um cliente web:
 
 > Em um terminal linux, digitar: "wget localhost:55504"
 
