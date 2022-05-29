@@ -3,13 +3,13 @@ from socket import *
 import subprocess
 class Servidor(BaseHTTPRequestHandler):
     def do_GET(self):
-        processos = subprocess.Popen(["ps"], stdout=subprocess.PIPE)
-        output, error = processos.communicate()
+        subprocessoPS = subprocess.Popen(["ps"], stdout=subprocess.PIPE)
+        output, error = subprocessoPS.communicate()
         out = output.split()
         self.send_response(200)
         self.send_header("Content-type", "text/html")
         self.end_headers()
-        self.wfile.write(bytes("<html><head><title>Servidor HTTP - Processos Em Execução</title></head>"))
+        self.wfile.write(bytes("<html><head><title>Servidor HTTP - Processos Em Execucao</title></head>"))
         self.wfile.write(bytes("<p>Url requisitado: %s</p>" % self.path))
         self.wfile.write(bytes("<p>Processos rodando neste servidor: </p>"))
         self.wfile.write(bytes("<body><table>"))
