@@ -1,7 +1,9 @@
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
-from socket import *
+import socket
 import subprocess
+
 class Servidor(BaseHTTPRequestHandler):
+    #Funcao chamada para responder uma requisicao GET de um cliente
     def do_GET(self):
         subprocessoPS = subprocess.Popen(["ps"], stdout=subprocess.PIPE)
         output, error = subprocessoPS.communicate()
@@ -34,11 +36,17 @@ class Servidor(BaseHTTPRequestHandler):
         #self.wfile.write(bytes("<p>Houve algum erro rodando 'ps'? %s</p>" % error))
         self.wfile.write(bytes("</tbody></table></body></html>"))
 
-portaServidor = 55504
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+s.connect(("8.8.8.8", 80))
+ipContainer = s.getsockname()[0] #encontrar o IP do container
+s.close()
+print "IP do container: "+ipContainer
+ipServidor = ipContainer
+portaServidor = 80
 
 if __name__ == "__main__":        
-    webServer = HTTPServer(("localhost", portaServidor), Servidor)
-    print("Server started http://%s:%s" % ("localhost", portaServidor))
+    webServer = HTTPServer((ipServidor, portaServidor), Servidor)
+    print("Servidor iniciado em http://%s:%s" % (ipServidor, portaServidor)) #tambem poderia usar "0.0.0.0" em vez do ip do container
 
     #try:
     webServer.serve_forever()
