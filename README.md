@@ -11,9 +11,24 @@ Depois de iniciado, o servidor atenderá requisições GET HTTP de qualquer subr
 
 ## Exemplo de uso:
 
-Primeiro deve-se executar o servidor, com o comando "python servidor.py". 
-Em seguida usa-se um cliente web:
+### Para iniciar o servidor:
 
-> Em um terminal linux, digitar: "wget localhost:55504"
+- (Etapas sem container)
+    - Deve-se executar o servidor, com o comando "python servidor.py". 
 
-> No firefox, digitar "localhost:55504/teste" (ou qualquer subrota de / )
+- (Etapas com container)
+    - Primeiro deve-se buildar a imagem do container a partir do Dockerfile, com o comando 
+    > docker image build -t servidorweb-jp:0.1 .
+
+    - Em seguida deve-se pôr o container para executar fazendo bind da porta 80 do container com a 55504 do host, usando o comando 
+    > docker container run -d -p 55504:80 -it --name servidorweb-jp servidorweb-jp:0.1
+
+### Para acessar o serviço:
+
+- Usa-se um cliente web:
+
+    - Em um terminal com wget instalado, digitar: "wget localhost:55504"
+    
+    Ou
+
+    - No firefox, digitar "localhost:55504/teste" (Pode ser qualquer subrota de / )
