@@ -3,7 +3,7 @@
 ## Autor: _João Paulo Secundo_
 
 ## Como funciona
-Depois de iniciado, o servidor atenderá requisições GET HTTP de qualquer subrota de `/`, e responderá com uma tabela informando os processos que estão atualmente em execução no servidor. Para isso, é criado um subprocesso `ps`, e seu output é montado dinamicamente em uma tabela html.
+Depois de iniciado, o servidor atenderá requisições GET HTTP de qualquer subrota de `/`, e responderá com um arquivo contendo uma tabela informando os processos que estão atualmente em execução no servidor. Para isso, é criado um subprocesso `ps`, e seu output é montado dinamicamente em uma tabela html.
 
 ##  Porta do servidor:
 
@@ -32,3 +32,22 @@ Depois de iniciado, o servidor atenderá requisições GET HTTP de qualquer subr
     Ou
 
     - No firefox, digitar "localhost:55504/teste" (Pode ser qualquer subrota de / )
+
+
+## Imagens da execução
+
+- Build da imagem:
+
+![Imagem Build](/imagens_execucao_container/build.PNG "Processo da imagem sendo buildada")
+
+- Container sendo iniciado e requisição recebida:
+
+![Imagem executar servidor](/imagens_execucao_container/requisicao_recebida.PNG "Container sendo iniciado e requisição recebida")
+
+- Requisição enviada e resposta recebida
+
+![Imagem mandar requisicao](/imagens_execucao_container/requisicao_enviada_wget.PNG "Requisição enviada e resposta recebida")
+
+- Visualização da resposta do servidor
+
+![Visualização da resposta index.html](/imagens_execucao_container/visualizar_index.PNG "Visualização da resposta index.html")
