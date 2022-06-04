@@ -1,4 +1,4 @@
-# Servidor:  PENSE - Processos Executando Neste SErvidor
+# PENSE - Processos Executando Neste SErvidor
 
 ## Autor: _João Paulo Secundo_
 
